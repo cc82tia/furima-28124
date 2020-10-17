@@ -1,5 +1,6 @@
 # furima-2812ER
-<img width="293" alt="ER図" src="https://user-images.githubusercontent.com/69379810/96332656-4dbd5e80-10a0-11eb-967a-bfd991024819.png">
+<img width="393" alt="ER図改" src="https://user-images.githubusercontent.com/69379810/96337039-c9c69f00-10be-11eb-9ac5-0a05033356ce.png">
+
 
 # 画面遷移
 ![画面遷移](https://user-images.githubusercontent.com/69379810/96327115-8560e200-1071-11eb-8fba-62fda864564c.jpg)
@@ -8,9 +9,8 @@
 ## userstable
  |Column|Type|Options|
  |:---|:---|:---|
- |user_id|bigint|null: false|
  |nickname|string |null: false|
- |mail_address|string|null: false|
+ |email|string|null: false|
  |password|string |null: false|
  |name|string|null: false|
  |name_reading|string |null: false|
@@ -23,7 +23,6 @@
 
  |Column|Type|Options|
  |:---|:---|:---|
- |item_id|bignit|null: false|
  |item_image|binary|null:false|
  |item_name|string|null: false|
  |description_item|text|null: false|
@@ -42,7 +41,6 @@
 
 |Column|Type|Options|
 |:---|:---|:---|
-|address_id|bignit|null: false|
 |postal_code|string|null: false|
 |prefecture| integer|null: false|
 |city|string|null: false|
