@@ -105,15 +105,3 @@ _ belongs_to:item
 ### Association
 - belongs_to:user
 _ belongs_to:item
-
-
-
-
-# Note
- 
--iosやandroidのアプリには対応していない
- 
-# Author
-
-* 作成者 28124
-* 所属   テックキャンプ 夜間online81期生
