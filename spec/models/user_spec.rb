@@ -40,7 +40,7 @@ RSpec.describe User, type: :request do
       it "family_nameが空だと登録できない" do
         @user.family_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family nameを入力してください", "Family nameは全角で入力してください。")
+        expect(@user.errors.full_messages).to include("姓を入力してください", "姓は全角で入力してください。")
       end
       it "first_nameが空では登録できない" do
         @user.first_name = nil

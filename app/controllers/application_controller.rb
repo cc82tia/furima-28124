@@ -18,6 +18,12 @@ class ApplicationController < ActionController::Base
   def destroy
   end
 
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+
   private
 
   def basic_auth
@@ -29,5 +35,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_reading, :first_name_reading, :birthday])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
 end
