@@ -9,7 +9,7 @@ RSpec.describe User, type: :request do
       it "全ての項目の入力が存在すれば登録できること" do
         expect(@user).to be_valid
       end
-      it "passwordが英数字混合6文字以上であれば登録できる" do
+      it "passwordが半角英数字混合6文字以上であれば登録できる" do
         @user.password = "t000000"
         @user.password_confirmation = "t000000"
         expect(@user).to be_valid
@@ -56,6 +56,11 @@ RSpec.describe User, type: :request do
       end
       it "passwordが英字のみだと登録できない" do
         @user.password = "abcdef"
+        @user.valid?
+        expect(@user.errors.full_messages).to include( "パスワードは半角6文字以上の英文字・数字それぞれ１文字以上含む必要があります")
+      end
+      it "passwordが全角を含むと登録できない" do
+        @user.password = "ＡｉＵｅＯ６"
         @user.valid?
         expect(@user.errors.full_messages).to include( "パスワードは半角6文字以上の英文字・数字それぞれ１文字以上含む必要があります")
       end

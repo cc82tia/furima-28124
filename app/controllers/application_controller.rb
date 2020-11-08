@@ -4,25 +4,8 @@ class ApplicationController < ActionController::Base
 
 
  #(省略)
-  def index
-  end
 
-  def new
-   @user = User.new(user_params)
-  end
-
-  def create
-    @user = User.new(user_params)
-  end
-  
-  def destroy
-  end
-
-  def user
-    params.require(:user_donation).permit(:nickname, :family_name, :first_name, :family_name_reading, :first_name_reading, :birthday)
-  end
-  
-  private
+    private
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
