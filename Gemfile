@@ -72,3 +72,5 @@ gem 'devise'
 
 gem 'i18n'
 
+gem 'mini_magick'
+
