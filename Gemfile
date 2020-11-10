@@ -74,3 +74,5 @@ gem 'i18n'
 
 gem 'mini_magick'
 
+
+gem 'active_hash'
