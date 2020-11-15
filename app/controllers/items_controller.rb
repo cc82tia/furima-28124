@@ -1,20 +1,21 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  
+  before_action :set_item, only: [:edit, :update, :destroy]
   def index
-  @item = Item.order("created_at DESC")
-  end
-
-  def show
-    @item = Item.show
+    @item = Item.new
   end
 
   def new
     @item = Item.new
   end
 
+  def show
+    @item = Item.new
+  end
+
   def create
-   Item.create(item_params)
-   if @item.save
+    @item = Item.new(set_item)
+  if @item.save
     redirect_to root_path
   else
     render :new
@@ -36,9 +37,9 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_sorce_id, :days_of_ships_id, :price, :user_id, :category_id, :image, :text)
+    params.require(:item).permit(:name, :description, :condition, :delivery_charge_id, :delivery_sorce_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
   end
-  def set_message
-    @item = Item.find(params[:id])
+  def set_item
+    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_source_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
   end
 end

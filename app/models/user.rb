@@ -16,7 +16,8 @@ class User < ApplicationRecord
     validates :family_name_reading, format: { with: VALID_READING_REGEX, message: "は全角カタカナで入力して下さい。"}, presence: true
     validates :first_name_reading, format: { with: VALID_READING_REGEX, message: "は全角カタカナで入力して下さい。"},  presence: true
     validates :birthday,                                                                                       presence: true
-  end           
+  end
+  has_many :items
 end
 
 
