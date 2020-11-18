@@ -7,7 +7,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
-# Use Puma as the app server
+# Use Puma as the app serve
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -76,3 +77,5 @@ gem 'mini_magick'
 
 
 gem 'active_hash'
+
+gem 'jquery-rails'

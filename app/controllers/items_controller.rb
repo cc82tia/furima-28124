@@ -24,7 +24,11 @@ end
 
   def edit
     @item.update(item_params)
-    redirect_to root_path
+    if @item.save
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def update
@@ -37,7 +41,7 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :condition, :delivery_charge_id, :delivery_sorce_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_sorce_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
   end
   def set_item
     params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_source_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
