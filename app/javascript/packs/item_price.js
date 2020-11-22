@@ -1,9 +1,6 @@
-window.addEventListener('load', () => {
-  console.log("OK");
-
-
-  
-});
+// window.addEventListener('load', () => {
+//   console.log("OK");
+// });
 
 window.addEventListener('load', () => {
 const priceInput = document.getElementById("item-price");

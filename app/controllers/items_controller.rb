@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   
   before_action :set_item, only: [:edit, :update, :destroy]
   def index
-    @item = Item.new
+    @items = Item.all
+    @items = @items.includes(:user)
   end
 
   def new
@@ -10,7 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.new
+    @item = Item.find(params[:id])
+    # @item = Item.destroy(params[:id])
   end
 
   def create
@@ -18,6 +20,7 @@ class ItemsController < ApplicationController
   if @item.save
     redirect_to root_path
   else
+    @items = @items.includes(:user)
     render :new
   end
 end
@@ -36,7 +39,7 @@ end
   end
 
   def destroy
-    @item = Item.destroy
+    @item = Item.destroy(params[:id])
   end
 
   private

@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :name,               presence: true, length: {maximum: 40, message: "は40字以内にて入力して下さい"}  
+    validates :name,               presence: true, length: {maximum: 40, message: "は40字以内にて入力して下さい"}  , unless: :was_attached?
     validates :description,        presence: true, length: {maximum: 1000, message:"は1,000字以内にて入力して下さい"}
     validates :condition_id,       presence: true, numericality: { other_than: 1, message:"は--以外を選択して下さい"}
     validates :delivery_charge_id, presence: true, numericality: { other_than: 1, message:"は--以外を選択して下さい"} 
