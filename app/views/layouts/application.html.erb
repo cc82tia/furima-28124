@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <head>内に記述されたリソースは初回しか読み込まれない。data-turbolinks-track="reload"を設定すると、遷移時にリソースの更新を確認し、必要に応じてリロードする。 %>
   </head>
 
   <body>
