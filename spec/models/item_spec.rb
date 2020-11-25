@@ -4,15 +4,16 @@ require 'pp'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
+    @item.image = fixture_file_upload('app/assets/images/item-sample.png')
   end
 
   describe '商品出品' do
     context '出品が上手くいくとき' do
       it '全ての項目の入力が存在すれば登録できる' do
         @item = FactoryBot.create(:item)
-        
+        @item.image = fixture_file_upload('app/assets/images/item-sample.png')
         expect(@item).to be_valid
-        pp @item
+        # pp @item
       end
     end
 

@@ -1,5 +1,9 @@
 FactoryBot.define do
   factory :item do
+    after(:build) do |item|
+      # ActiveStorageの場合
+      item.image.attach(io: File.open('app/assets/images/item-sample.png'), filename: 'item-sample.png', content_type: 'image/png')
+    end
     name { Faker::Name.name }
     description { Faker::Lorem.sentence }
     condition_id { 2 }

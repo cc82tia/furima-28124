@@ -129,9 +129,11 @@
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <li class='list'> 
         <%= @items.each do |item| %>
-         <%= link_to(item_path(item), class: 'list-content') do %>
+         <%= link_to  item_path(item.id), class: 'list-content' %>
             <div class='item-img-content'>
-              <%= image_tag item.image , class: "item-img" %>
+            <%# <% if item.image.attached? %> %>
+              <%# <%= image_tag  item.image , class: "item-img" %> %>
+            <%# <% end %>  %>
               <%# //商品が売れていればsold outを表示しましょう %>
               
                 <div class='sold-out'>
@@ -147,14 +149,6 @@
               </h3>
               <div class='item-price'>
                 <span><%= item.price %>円(税抜)<br>
-                <%# <%= item.name %>
-                <%# <%= item.description %>
-                <%# <%= item.condition_id %>
-                <%# <%= item.delivery_charge_id %>
-                <%# <%= item.delivery_source_id %>
-                <%# <%= item.days_of_ships_id %>
-                <%# <%= item.price %>
-                <%# <%= item.id %>
                 </span> 
                  <div class='star-btn'>
                   <%= image_tag "star.png", class:"star-icon" %>
@@ -162,7 +156,6 @@
                 </div>
               </div>
             </div> 
-          <% end %>
         <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
@@ -170,17 +163,13 @@
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+
+          <%= link_to '#' do %>
+            <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+            <div class='item-info'> 
+              <h3 class='item-name'>
+                <%# 商品を出品してね！ %>
+              </h3>
               <div class='item-price'>
                 <span>99999999円<br>(税抜)</span>
                 <div class='star-btn'>

@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @items = @items.includes(:user)
+    # .order("created_at DESC")
   end
 
   def new
@@ -12,41 +13,41 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @item = Item.destroy(params[:id])
   end
 
   def create
-    @item = Item.new(set_item)
+    @item = Item.new(item_params)
   if @item.save
     redirect_to root_path
   else
-    @items = @items.includes(:user)
+    # @items = @items.includes(:item)
     render :new
   end
 end
 
-  def edit
-    @item.update(item_params)
-    if @item.save
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  # def edit
+  #   @item.find(params[:id])
+  #   if @item.update(set_item)
+  #     redirect_to root_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def update
-    @item = Item.update
-  end
+  # def update
+  #   @item = Item.find(params[:id])
+  #   item.update(set_item)
+  # end
 
-  def destroy
-    @item = Item.destroy(params[:id])
-  end
+  # def destroy
+  #   @item = Item.destroy(set_item)
+  # end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_sorce_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id,  :delivery_source_id,  :days_of_ships_id, :price, :category_id, :image ).merge(user_id: current_user.id)
   end
   def set_item
-    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id, :delivery_source_id, :days_of_ships_id, :price, :category_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :condition_id, :delivery_charge_id,  :delivery_source_id,  :days_of_ships_id, :price, :category_id, :image ).merge(user_id: current_user.id)
   end
 end

@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
-    validates :name,               presence: true, length: {maximum: 40, message: "は40字以内にて入力して下さい"}  , unless: :was_attached?
+    validates :name,               presence: true, length: {maximum: 40, message: "は40字以内にて入力して下さい"} 
     validates :description,        presence: true, length: {maximum: 1000, message:"は1,000字以内にて入力して下さい"}
     validates :condition_id,       presence: true, numericality: { other_than: 1, message:"は--以外を選択して下さい"}
     validates :delivery_charge_id, presence: true, numericality: { other_than: 1, message:"は--以外を選択して下さい"} 
@@ -28,6 +28,7 @@ class Item < ApplicationRecord
       :less_than_or_equal_to => 9999999, message: "は300円から9,999,999円の間で設定して下さい"}
     validates :category_id,        presence: true, numericality: { other_than: 1, message:"は--以外を選択して下さい"}
     validates :user_id,            presence: true
+    validates :image,              presence: true
   end
  
 end
