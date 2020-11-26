@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def create
@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # @items = @items.includes(:item)
       render :new
     end
   end
