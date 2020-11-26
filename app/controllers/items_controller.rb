@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   
   before_action :set_item, only: [:edit, :update, :destroy]
   def index
-    @items = Item.all
-    @items = @items.includes(:user)
+    # @items = Item.all
+    # @items = @items.includes(:user)
     # .order("created_at DESC")
   end
 
@@ -17,13 +17,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-  if @item.save
-    redirect_to root_path
-  else
-    # @items = @items.includes(:item)
-    render :new
+    if @item.save
+      redirect_to root_path
+    else
+      # @items = @items.includes(:item)
+      render :new
+    end
   end
-end
 
   # def edit
   #   @item.find(params[:id])

@@ -18,9 +18,6 @@ RSpec.describe Item, type: :model do
     end
 
     context '出品が上手くいかないとき' do
-      # before do
-      #   @item = FactoryBot.build(:item)
-      # end
         it '商品名がないと登録できない' do
           @item.name = nil
           @item.valid?
@@ -56,6 +53,11 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include( "Delivery sourceは--以外を選択して下さい")
         end
+        it '発送日数が１だと登録できない' do
+          @item.days_of_ships_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Days of shipsは--以外を選択して下さい")
+        end
         it '販売価格が300円以下だとと登録できない' do
           @item.price = 299
           @item.valid?
@@ -71,8 +73,13 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include( "Categoryは--以外を選択して下さい")
         end
-        it "ユーザーが紐付いていないとツイートは保存できない" do
+        it "ユーザーが紐付いていないと登録できない" do
           @item.user = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Userを入力してください")
+        end
+        it "ユーザーidがないと登録できない" do
+          @item.user_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Userを入力してください")
         end
