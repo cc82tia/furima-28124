@@ -7,7 +7,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
-# Use Puma as the app server
+# Use Puma as the app serve
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+ gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -35,6 +35,12 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'gimei'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -67,3 +73,9 @@ gem 'devise'
 
 gem 'i18n'
 
+gem 'mini_magick'
+
+
+gem 'active_hash'
+
+gem 'jquery-rails'
