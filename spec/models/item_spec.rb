@@ -13,7 +13,7 @@ RSpec.describe Item, type: :model do
         @item = FactoryBot.create(:item)
         @item.image = fixture_file_upload('app/assets/images/item-sample.png')
         expect(@item).to be_valid
-        # pp @item
+        pp @item
       end
     end
 
@@ -43,8 +43,18 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include( "Conditionは--以外を選択して下さい")
         end
+        it '商品状態が空だと登録できない' do
+          @item.condition_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Conditionは--以外を選択して下さい")
+        end
         it '発送手数料が1だと登録できない' do
           @item.delivery_charge_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Delivery chargeは--以外を選択して下さい")
+        end
+        it '発送手数料が空だと登録できない' do
+          @item.delivery_charge_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include( "Delivery chargeは--以外を選択して下さい")
         end
@@ -53,8 +63,18 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include( "Delivery sourceは--以外を選択して下さい")
         end
-        it '発送日数が１だと登録できない' do
+        it '発送地が空だと登録できない' do
+          @item.delivery_source_id = nil
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Delivery sourceは--以外を選択して下さい")
+        end
+        it '発送までの日数が１だと登録できない' do
           @item.days_of_ships_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Days of shipsは--以外を選択して下さい")
+        end
+        it '発送までの日数が空だと登録できない' do
+          @item.days_of_ships_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include( "Days of shipsは--以外を選択して下さい")
         end
@@ -70,6 +90,11 @@ RSpec.describe Item, type: :model do
         end
         it 'カテゴリーが1だと登録できない' do
           @item.category_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include( "Categoryは--以外を選択して下さい")
+        end
+        it 'カテゴリーが空だと登録できない' do
+          @item.category_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include( "Categoryは--以外を選択して下さい")
         end
