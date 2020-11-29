@@ -23,12 +23,12 @@ class Item < ApplicationRecord
     validates :delivery_charge_id,  numericality: { other_than: 1, message:"は--以外を選択して下さい"} 
     validates :delivery_source_id,  numericality: { other_than: 0, message:"は--以外を選択して下さい"} 
     validates :days_of_ships_id,    numericality: { other_than: 1, message:"は--以外を選択して下さい"} 
-    validates :price,               inclusion: { in: 300..9999999, on: :create, message: "は300円から9,999,999円の間で設定して下さい" }
-    # numericality: {
-    #   greater_than_or_equal_to: :300,
-    #   less_than_or_equal_to: :9999999 , message: "は300円から9,999,999円の間で設定して下さい"}
+    validates :price,               numericality: { only_integer: true, 
+      greater_than_or_equal_to: 300,
+      less_than_or_equal_to: 9999999 , message: "は300円から9,999,999円の間で設定して下さい"}
     validates :category_id,         numericality: { other_than: 1, message:"は--以外を選択して下さい"}
     validates :user_id           
     validates :image            
   end
 end
+ # inclusion: { in: 300..9999999, on: :create, message: "は300円から9,999,999円の間で設定して下さい" }
