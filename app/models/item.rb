@@ -31,5 +31,4 @@ class Item < ApplicationRecord
     validates :user_id           
     validates :image            
   end
- 
 end
