@@ -19,9 +19,6 @@ class User < ApplicationRecord
   end
   has_many :items
 
-  def items
-    return Item.where(user_id: self.id)
-  end
 end
 
 
