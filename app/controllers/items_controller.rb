@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :only_item_user, except:[:index,:show]
   before_action :find_item_id, only: [:show, :edit, :update]
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -42,5 +43,11 @@ class ItemsController < ApplicationController
 
   def find_item_id
     @item = Item.find(params[:id])
+  end
+
+  def only_item_user
+    unless Item.find(params[:id]).user.id.to_i == current_user.id
+      redirect_to items_path
+    end
   end
 end
