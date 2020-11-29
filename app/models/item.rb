@@ -31,4 +31,3 @@ class Item < ApplicationRecord
     validates :image            
   end
 end
- # inclusion: { in: 300..9999999, on: :create, message: "は300円から9,999,999円の間で設定して下さい" }
