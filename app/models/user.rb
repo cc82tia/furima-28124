@@ -18,6 +18,11 @@ class User < ApplicationRecord
     validates :birthday,                                                                                       presence: true
   end
   has_many :items
+
+  def items
+    return Item.where(user_id: self.id)
+  end
 end
+
 
 

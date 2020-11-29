@@ -16,10 +16,10 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-         <%= @item.price %>
+        ¥<%= @item.price %>-
       </span>
       <span class="item-postage">
-        <%= @item.delivery_charge_id %>
+        <%= @item.delivery_charge.name %>
       </span>
     </div>
 
@@ -44,27 +44,28 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user_id%></td> 
+          <td class="detail-value">
+          <%= @item.user.nickname %></td> 
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.category_id %></td> 
+          <td class="detail-value"><%= @item.category.name %></td> 
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.condition_id %></td>
+          <td class="detail-value"><%= @item.condition.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.delivery_charge_id %></td>
+          <td class="detail-value"><%= @item.delivery_charge.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.delivery_source_id %></td>
+          <td class="detail-value"><%= @item.delivery_source.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安 </th>
-          <td class="detail-value"><%= @item.days_of_ships_id  %></td>
+          <td class="detail-value"><%= @item.days_of_ships.name  %></td>
         </tr>
       </tbody>
     </table>
