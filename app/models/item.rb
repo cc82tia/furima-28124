@@ -6,10 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_source
   belongs_to_active_hash :days_of_ships
 
-  
-  
   belongs_to :user
-
+  has_one :order
   has_one_attached :image
   
   def was_attached?
