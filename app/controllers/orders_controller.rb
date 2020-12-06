@@ -12,13 +12,13 @@ class OrdersController < ApplicationController
 
   def create
     @item_order = ItemOrder.new(order_address)
-    binding.pry
     if @item_order.valid?
       @item_order.save
      
       redirect_to  root_path
     else  
-      redirect_to items_path
+      @item = Item.find(params[:item_id])
+      render action: :index
     end
   end
 
