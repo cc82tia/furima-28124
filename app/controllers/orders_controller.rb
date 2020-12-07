@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
     @item_order = ItemOrder.new(order_address)
     if @item_order.valid?
       @item_order.save
-     
       redirect_to  root_path
     else  
       @item = Item.find(params[:item_id])

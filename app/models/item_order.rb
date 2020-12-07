@@ -3,7 +3,7 @@ class ItemOrder
   attr_accessor :postal_code, :delivery_source_id, :city, :house_number, :building_number, :phone_number,:user_id , :item_id
   
   with_options presence: true do
-    validates :postal_code,         format:{ with: /\d{3}-\d{4}/, messeage:"はハイフン入れての７桁にして下さい"}
+    validates :postal_code,         format:{ with: /\d{3}-\d{4}/, messeage:"を入力してください。Postal codeは不正な値です"}
     validates :delivery_source_id,  numericality: { other_than: 0, message:"は--以外を選択して下さい"} 
     validates :city
     validates :house_number
