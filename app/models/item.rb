@@ -25,6 +25,6 @@ class Item < ApplicationRecord
       greater_than_or_equal_to: 300,
       less_than_or_equal_to: 9999999 , message: "は300円から9,999,999円の間で設定して下さい"}
     validates :category_id,         numericality: { other_than: 1, message:"は--以外を選択して下さい"}
-    validates :image            
+    validates :image  
   end
 end
