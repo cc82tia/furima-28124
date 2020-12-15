@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :authenticate_user!, only: [:edit, :update, :new]
 
  #(省略)
 
@@ -18,4 +17,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_reading, :first_name_reading, :birthday])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
   end
+ 
 end

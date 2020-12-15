@@ -52,7 +52,7 @@
 |Column|Type|Options|
 |:---|:---|:---|
 |postal_code|string|null: false|
-|prefecture_id| integer|null: false|
+|delivery_source_id| integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building_number|string|
@@ -66,8 +66,8 @@
 ## orders table
 |Column|Type|Options|
 |:---|:---|:---|
-|user|references|foreign_key: true, null: false|
-|item|references|foreign_key: true, null:false|
+|user_id|references|foreign_key: true, null: false|
+|item_id|references|foreign_key: true, null:false|
 
 ### Association
 - belongs_to:user

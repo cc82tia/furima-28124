@@ -6,10 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_source
   belongs_to_active_hash :days_of_ships
 
-  
-  
   belongs_to :user
-
+  has_one :order
   has_one_attached :image
   
   def was_attached?
@@ -27,6 +25,6 @@ class Item < ApplicationRecord
       greater_than_or_equal_to: 300,
       less_than_or_equal_to: 9999999 , message: "は300円から9,999,999円の間で設定して下さい"}
     validates :category_id,         numericality: { other_than: 1, message:"は--以外を選択して下さい"}
-    validates :image            
+    validates :image  
   end
 end

@@ -1,5 +1,8 @@
   <%= form_with model: @item,local: true do |f| %>
 
+ 
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
     <%=  render 'shared/error_messages', model: f.object %>
     
     <%# 出品画像 %>
@@ -135,3 +138,4 @@
     </div>
     <%# /下部ボタン %>
   <% end %>
+  
