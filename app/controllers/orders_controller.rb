@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :only_item_user 
   before_action :item_find
+  before_action :only_item_user 
   before_action :double_sale
-  require "payjp"
   def index
         @item_order = ItemOrder.new
   end
@@ -51,7 +50,6 @@ class OrdersController < ApplicationController
   end
 
   def double_sale  
-    item_find      
     @order = Order.pluck(:item_id)
     if  @order.include?(@item.id)
       redirect_to root_path

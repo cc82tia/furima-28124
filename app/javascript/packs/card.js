@@ -1,6 +1,6 @@
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
-  // PAY.JPテスト公開鍵
+ 
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const pay = () => {
       document.getElementById("card-exp-year").removeAttribute("name");
       
       document.getElementById("charge-form").submit();
-    });console.log(token)
+    });
   });
 };
 

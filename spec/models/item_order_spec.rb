@@ -12,6 +12,10 @@ RSpec.describe ItemOrder, type: :model do
       it '全ての項目の入力が存在すれば購入できる' do
         expect(@item_order).to be_valid
       end
+      it '建物名の入力がなくても購入できる' do
+        @item_order.building_number = nil
+        @item_order.valid?
+      end
     end
     
     context '購入がうまくいかないとき' do
