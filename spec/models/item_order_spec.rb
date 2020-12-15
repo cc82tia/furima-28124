@@ -5,8 +5,6 @@ require 'item_order'
 RSpec.describe ItemOrder, type: :model do
   before do
     @item_order = FactoryBot.build(:item_order)
-    # @order = FactoryBot.build(:order)
-    # @address = FactoryBot.build(:address)
   end
   
   describe '商品購入' do
@@ -78,6 +76,11 @@ RSpec.describe ItemOrder, type: :model do
         @item_order.phone_number = 123456789012
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Phone numberは不正な値です")
+      end
+      it "tokenが空では登録できないこと" do
+        @item_order.token = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Tokenを入力してください")
       end
     end
 

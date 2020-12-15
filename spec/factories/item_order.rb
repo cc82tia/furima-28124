@@ -23,6 +23,6 @@ FactoryBot.define do
     house_number {Gimei::address.town.kanji  }
     building_number { 7 }
     phone_number { 1234567890 }
-    # association :order
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end
