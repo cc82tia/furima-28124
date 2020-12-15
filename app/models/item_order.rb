@@ -10,6 +10,8 @@ class ItemOrder
     validates :house_number
     validates :phone_number,        format:{ with:/\A\d{10,11}\z/,messeage:"はハイフン無しの10桁若しくは11桁にして下さい"}
     validates :token
+    validates :item_id
+    validates :user_id
   end
 
   def save
