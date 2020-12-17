@@ -1,4 +1,4 @@
-# class User
+class Usernc
 
 #   include ActiveModel::Model
 #   attr_accessor :nickname, :family_name, :first_name, :family_name_reading, :first_name_reading, :birthday
@@ -17,4 +17,4 @@
 #     user = User.create(nickname: nickname, family_name: family_name, first_name: first_name, family_name_reading: family_name_reading, first_name_reading: first_name_reading, birthday: birthday)
 
 #   end
-# end
+end
