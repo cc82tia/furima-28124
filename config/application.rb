@@ -25,5 +25,6 @@ module Furima28124
       g.test_framework false
     end
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.autoloader = :classic
   end
 end
