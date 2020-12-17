@@ -40,12 +40,17 @@ RSpec.describe ItemOrder, type: :model do
         expect(@item_order.errors.full_messages).to include()
       end
 
-      it '都道府県が0以外でないと購入できない' do
+      it '都道府県が空だと購入できない' do
         @item_order.delivery_source_id = nil
         @item_order.valid?
         expect(@item_order.errors.full_messages).to include("Delivery sourceを入力してください", "Delivery sourceは--以外を選択して下さい")
       end
       
+      it '都道府県が0以外でないと購入できない' do
+        @item_order.delivery_source_id = 0
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Delivery sourceは--以外を選択して下さい")
+      end
       it '市町村を入力しないと購入できない' do
         @item_order.city = nil
         @item_order.valid?
