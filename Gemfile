@@ -82,4 +82,4 @@ gem 'jquery-rails'
 
 gem 'payjp'
 
-gem  'heroku-forward'
+# gem  'heroku-forward'
